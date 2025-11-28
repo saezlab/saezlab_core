@@ -28,6 +28,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Bio-Informatics"
 ]
 dependencies = [
+    "numpy>=2.2.6",
     "toml"
 ]
 description = "This is session handler, configuration and logging handler for Saezlab packages and applications."

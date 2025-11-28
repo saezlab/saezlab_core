@@ -13,6 +13,11 @@
 # https://opensource.org/license/mit
 #
 
+from .logger import get_logger
+from .session import Session
+
+__all__ = ['get_logger', 'Session']
+
 """This is session handler, configuration and logging handler for Saezlab packages and applications."""
 
 __all__ = [
@@ -20,4 +25,4 @@ __all__ = [
     '__author__',
 ]
 
-from ._metadata import __author__, __version__
+# from ._metadata import __author__, __version__
