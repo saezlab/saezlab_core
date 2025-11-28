@@ -2,6 +2,7 @@ __all__ = [
     'utility_function',
 ]
 
+
 def utility_function():
     """A simple utility function that does not perform any logging.
     Its operations are silent.
