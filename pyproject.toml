@@ -31,9 +31,10 @@ dependencies = [
     "numpy>=2.2.6",
     "omegaconf>=2.3.0",
     "pandas>=2.3.3",
+    "platformdirs>=4.5.0",
     "python-json-logger>=4.0.0",
     "pyyaml>=6.0.3",
-    "toml"
+    "toml",
 ]
 description = "This is session handler, configuration and logging handler for Saezlab packages and applications."
 license = "MIT"
