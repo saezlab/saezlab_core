@@ -1,4 +1,8 @@
 import os
+import sys
+import pathlib as pl
+import platformdirs
+
 
 from omegaconf import OmegaConf, DictConfig
 
@@ -52,3 +56,53 @@ class ConfigLoader:
         else:
             merged = OmegaConf.create({})
         return merged
+
+
+def read_config(path: str | pl.Path) -> DictConfig:
+
+    path = pl.Path(path)
+
+    return OmegaConf.load(path) if path.exists() else DictConfig({})
+
+
+def merge_config(default: DictConfig, override: DictConfig) -> DictConfig:
+
+    merged = OmegaConf.merge(default, override)
+
+    return merged
+
+
+def path_discovery(module: str) -> list[pl.Path]:
+
+    paths = []
+
+    # Default config
+    paths.append(pl.Path(sys.modules[module].__path__[0], "_config", "default.yaml"))
+
+    # Home user config
+    paths.append(pl.Path(platformdirs.user_config_dir(module), "config.yaml"))
+
+    # Current working directory config
+    paths.append(pl.Path(os.getcwd(), f"{module}.yaml"))
+
+    return paths
+
+
+def load_config(*paths) -> DictConfig:
+
+    config = DictConfig({})
+
+    for path in paths:
+        this_config = read_config(path)
+        config = merge_config(config, this_config)
+
+    return config
+
+
+def get_config(module: str) -> DictConfig:
+
+    paths = path_discovery(module)
+
+    config = load_config(*paths)
+
+    return config
