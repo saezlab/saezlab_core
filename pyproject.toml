@@ -29,6 +29,10 @@ classifiers = [
 ]
 dependencies = [
     "numpy>=2.2.6",
+    "omegaconf>=2.3.0",
+    "pandas>=2.3.3",
+    "python-json-logger>=4.0.0",
+    "pyyaml>=6.0.3",
     "toml"
 ]
 description = "This is session handler, configuration and logging handler for Saezlab packages and applications."
@@ -49,7 +53,8 @@ dev = [
     "distlib",
     "pre-commit",
     "bump2version",
-    "twine"
+    "twine",
+    "ipykernel"
 ]
 docs = [
     "mkdocs-material>=9.6.14",
@@ -58,6 +63,9 @@ docs = [
 ]
 security = [
     "bandit"
+]
+semantic = [
+    "rdflib>=6.0.0"
 ]
 tests = [
     "pytest>=6.0",
