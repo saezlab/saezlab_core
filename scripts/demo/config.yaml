@@ -7,8 +7,42 @@ logging:
     backup_count: 3          # Number of rotated log files to keep
     exclude_loggers:         # Loggers to suppress or set to WARNING
     -   pandas
-    -   matplotlib
+    #-   matplotlib
     per_app_files: false     # Use per-app log files (future feature)
-    json_logs: false          # Enable JSON log output
+    json_logs: true          # Enable JSON log output
     timezone: Europe/Berlin          # Time zone for log timestamps (e.g., UTC, Europe/Berlin)
     async_logging: true              # Enable async logging with QueueHandler/QueueListener
+
+# Top level application configuration
+application:
+    logging: 
+        app_name: demo_app       # Application name (used in log file name)
+        format: '[%(asctime)s] [%(levelname)s] [%(name)s] %(message)s' # Log format
+        max_megabytes: 10         # Max log file size in megabytes (easier to understand)
+        backup_count: 3          # Number of rotated log files to keep
+        exclude_loggers:         # Loggers to suppress or set to WARNING
+        -   pandas
+        #-   matplotlib
+        per_app_files: false     # Use per-app log files (future feature)
+        json_logs: true          # Enable JSON log output
+        timezone: Europe/Berlin          # Time zone for log timestamps (e.g., UTC, Europe/Berlin)
+        async_logging: true
+
+modules:
+    cache_manager:
+        logging:
+
+        # Configuration for the cache manager behavior
+        expiry: 
+
+    download_manager:
+        logging:
+
+        # Configuration for the download manager
+        
+
+    annnet:
+        logging:modules:
+
+        # Configuration for the annnet modules
+

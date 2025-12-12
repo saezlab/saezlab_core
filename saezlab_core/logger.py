@@ -108,9 +108,11 @@ def setup_logging(config: dict) -> None:
     logging.basicConfig(level=log_level, handlers=handlers, force=True)
 
     # Exclude or set log level for specified loggers
-    exclude_loggers = cfg.get('exclude_loggers', [])
+    exclude_loggers = cfg.get('exclude_loggers', []) or []
+    
     for logger_name in exclude_loggers:
         logger = logging.getLogger(logger_name)
+        logger.info("THis is a test message to check logger exclusion.")
         logger.setLevel(logging.WARNING)
         logger.propagate = (
             False  # Prevents messages from being passed to the root logger

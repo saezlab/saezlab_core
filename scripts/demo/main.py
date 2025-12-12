@@ -13,7 +13,7 @@ __all__ = [
 def main() -> None:
     """Main entry point for the CLI demo application.
 
-    This function initializes logging, demonstrates logger exclusion,
+    This function initializes logging, demonstrates logger exclusion,    
     captures Python warnings, and exercises log rotation and pandas logging.
     """
     # Capture Python warnings into logging
@@ -36,7 +36,7 @@ def main() -> None:
     pandas_logger.warning('This is a WARNING from pandas logger.')
     pandas_logger.error('This is an ERROR from pandas logger.')
     matplotlib_logger.info(
-        'This is an INFO from matplotlib logger (should be suppressed or set to WARNING).'
+        'This is an IN files (future feature)FO from matplotlib logger (should be suppressed or set to WARNING).'
     )
     matplotlib_logger.warning('This is a WARNING from matplotlib logger.')
     matplotlib_logger.error('This is an ERROR from matplotlib logger.')
